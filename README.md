@@ -1,2 +1,2 @@
 # bananabank
-iBB application
+iBBB - Banana Best Bank Inc. application for account management
