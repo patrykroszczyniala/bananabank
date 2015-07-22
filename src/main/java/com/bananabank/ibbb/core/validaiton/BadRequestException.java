@@ -2,7 +2,7 @@
  * Copyright (c) 2015, Patryk Roszczyniała for Banana Best Bank Inc.
  * All rights reserved.
  */
-package com.bananabank.ibbb.core.valicadion;
+package com.bananabank.ibbb.core.validaiton;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;

@@ -7,7 +7,7 @@ import org.aopalliance.intercept.MethodInterceptor;
 import org.aopalliance.intercept.MethodInvocation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import com.bananabank.ibbb.core.valicadion.UnauthorizedException;
+import com.bananabank.ibbb.core.validaiton.UnauthorizedException;
 import com.bananabank.ibbb.request.balance.entity.Authorizable;
 
 /**

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
-import com.bananabank.ibbb.core.valicadion.BadRequestException;
+import com.bananabank.ibbb.core.validaiton.BadRequestException;
 import com.bananabank.ibbb.request.balance.entity.Account;
 import com.bananabank.ibbb.request.balance.entity.Balance;
 import com.bananabank.ibbb.request.balance.entity.Owner;

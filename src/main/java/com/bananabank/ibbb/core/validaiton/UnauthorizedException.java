@@ -1,7 +1,7 @@
 /**
  * Copyright (c) 2015, Patryk Roszczyniała
  */
-package com.bananabank.ibbb.core.valicadion;
+package com.bananabank.ibbb.core.validaiton;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ResponseStatus;
