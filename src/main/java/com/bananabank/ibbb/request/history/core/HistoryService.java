@@ -4,6 +4,7 @@
  */
 package com.bananabank.ibbb.request.history.core;
 
+import java.util.Collection;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.bananabank.ibbb.request.balance.entity.Owner;
@@ -34,7 +35,14 @@ public class HistoryService {
      * @return the historical transactions
      */
     public Transactions transactionsHistory(final String userId) {
-        return dao.getTransactions(new Owner(userId));
+        final Owner owner = new Owner(userId);
+        Collection<AccountHistory> all = dao.getAll();
+        for (AccountHistory ah : all) {
+            if (owner.equals(ah.getId())) {
+                return ah.getTransactions();
+            }
+        }
+        return new Transactions();
     }
 
     /**

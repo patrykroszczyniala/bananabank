@@ -22,6 +22,16 @@ public class AccountHistory implements Entity<Owner> {
     private final Transactions transactions;
 
     /**
+     * Instantiates a new empty account history.
+     *
+     * @param owner the owner
+     */
+    public AccountHistory(final Owner owner) {
+        this.owner = owner;
+        this.transactions = new Transactions();
+    }
+
+    /**
      * Instantiates a new account history.
      *
      * @param owner the owner

@@ -20,6 +20,14 @@ public class Account implements Entity<Owner> {
     /** The owner of the account. */
     private final Owner owner;
 
+    /**
+     * Instantiates a new empty account.
+     */
+    public Account(final Owner owner) {
+        this.balance = new Balance();
+        this.owner = owner;
+    }
+
     public Account(final Balance balance, final Owner owner) {
         this.balance = balance;
         this.owner = owner;

@@ -7,7 +7,7 @@
 	<bean id="persistence" class="com.bananabank.ibbb.core.persistence.Persistence"></bean>
 	<bean id="session" class="com.bananabank.ibbb.core.persistence.Session"></bean>
 	
-	<bean id="balanceDao" class="com.bananabank.ibbb.request.balance.core.BalanceDao"></bean>
+	<bean id="accountDao" class="com.bananabank.ibbb.request.balance.core.AccountDao"></bean>
 	<bean id="balanceService" class="com.bananabank.ibbb.request.balance.core.BalanceService"></bean>
 	<bean class="com.bananabank.ibbb.request.balance.BalanceController" >
 		<constructor-arg name="balanceService" ref="balanceService"></constructor-arg>

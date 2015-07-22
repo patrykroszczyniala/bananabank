@@ -34,7 +34,7 @@ public class TokenService {
      */
     public Token generate(String userId) {
         Token token = new TokenGenerator().generate(userId);
-        dao.persist(token);
+        dao.saveOrUpdate(token);
         return token;
     }
 }

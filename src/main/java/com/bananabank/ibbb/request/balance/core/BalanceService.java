@@ -22,10 +22,10 @@ import com.bananabank.ibbb.request.balance.entity.Owner;
 @Scope("request")
 public class BalanceService {
 
-    private BalanceDao dao;
+    private AccountDao dao;
 
     @Autowired
-    public BalanceService(BalanceDao dao) {
+    public BalanceService(AccountDao dao) {
         this.dao = dao;
     }
 
@@ -40,7 +40,7 @@ public class BalanceService {
         Balance updatedBalance = persistedAccount.getBalance().add(value);
         Account updatedAccount =
                 new Account(updatedBalance, persistedAccount.getOwner());
-        dao.persist(updatedAccount);
+        dao.saveOrUpdate(updatedAccount);
     }
 
     /**
@@ -58,7 +58,7 @@ public class BalanceService {
         if (updatedAccount.getBalance().getValue().compareTo(BigDecimal.ZERO) < 0) {
             throw new BadRequestException();
         }
-        dao.persist(updatedAccount);
+        dao.saveOrUpdate(updatedAccount);
     }
 
     /**

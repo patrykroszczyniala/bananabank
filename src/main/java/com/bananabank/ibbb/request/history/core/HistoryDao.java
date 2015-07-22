@@ -1,17 +1,16 @@
 package com.bananabank.ibbb.request.history.core;
 
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import com.bananabank.ibbb.core.persistence.Dao;
 import com.bananabank.ibbb.core.persistence.Session;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.history.entity.AccountHistory;
-import com.bananabank.ibbb.request.history.entity.Transactions;
 
-// TODO create dao for audited data
 @Component
-public class HistoryDao {
+public class HistoryDao implements Dao<Owner, AccountHistory> {
 
     private Session<Owner, AccountHistory> session;
 
@@ -20,18 +19,28 @@ public class HistoryDao {
         this.session = session;
     }
 
+    @Override
     public void saveOrUpdate(AccountHistory entity) {
         session.saveOrUpdate(entity);
     }
 
-    // TODO move to TransactionsDao ?
-    public Transactions getTransactions(Owner owner) {
-        Collection<AccountHistory> all = session.getAll(AccountHistory.class);
-        for (AccountHistory ah : all) {
-            if (owner.equals(ah.getId())) {
-                return ah.getTransactions();
-            }
+    @Override
+    public AccountHistory get(Owner id) {
+        Optional<AccountHistory> persistedAccount =
+                session.get(AccountHistory.class, id);
+        if (persistedAccount.isPresent()) {
+            return persistedAccount.get();
         }
-        return new Transactions(new ArrayList<>());
+        return new AccountHistory(id);
+    }
+
+    @Override
+    public void delete(final AccountHistory entity) {
+        session.delete(entity);
+    }
+
+    @Override
+    public Collection<AccountHistory> getAll() {
+        return session.getAll(AccountHistory.class);
     }
 }
