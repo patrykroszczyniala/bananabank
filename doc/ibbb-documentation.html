@@ -156,7 +156,7 @@ Content-Type: application/json
 
 	<span id="gherkin-scenario"><span class="label">Scenario</span>: <span class="description">User patryk want to generate one time password.</span></span>
 		<span id="gherkin-step"><span class="label">When</span> <span class="description">user patryk generates password</span></span>
-		<span id="gherkin-step"><span class="label">And</span> <span class="description">response is returned</span>
+		<span id="gherkin-step"><span class="label">Then</span> <span class="description">response is returned</span>
 		<b>| http response | content type     | content               |</b>
 		| 200           | application/json | { "token": "2d3fa2" } |</span>
 		</span>
@@ -390,8 +390,8 @@ Body:
 					<td>User passed wrong password.</td>
 				</tr>
 				<tr>
-					<td>403 Forbidden</td>
-					<td>Money can't be deposited, eg. user sent request with negative value.</td>
+					<td>400 Bad Request</td>
+					<td>Request validation failed, eg. money can't be deposited because user sent request with negative value.</td>
 				</tr>
 				</table>
 				
@@ -409,7 +409,7 @@ Body:
 	<span id="gherkin-scenario"><span class="label">Scenario</span>: <span class="description">User patryk want to deposit -10 dollars on the account (negative number).</span></span>
 		<span id="gherkin-step"><span class="label">Given</span> <span class="description">$20 on the account</span>
 		<span id="gherkin-step"><span class="label">When</span> <span class="description">user patryk deposits -10 dollars</span></span>
-		<span id="gherkin-step"><span class="label">Then</span> <span class="description">response 403 is returned</span></span>
+		<span id="gherkin-step"><span class="label">Then</span> <span class="description">response 400 is returned</span></span>
 		
 	<span id="gherkin-scenario"><span class="label">Scenario</span>: <span class="description">User patryk want to deposit $10 dollars on the account but entered wrong password.</span></span>
 		<span id="gherkin-step"><span class="label">Given</span> <span class="description">$20 on the account</span>
@@ -498,7 +498,7 @@ HTTP 200 OK
 	<span id="gherkin-scenario"><span class="label">Scenario</span>: <span class="description">Money will not be withdrawn from the account if user entered negative number.</span></span>
 		<span id="gherkin-step"><span class="label">And</span> <span class="description">$15 on the account</span></span>
 		<span id="gherkin-step"><span class="label">When</span> <span class="description">user withdraws -10 dollars</span></span>
-		<span id="gherkin-step"><span class="label">Then</span> <span class="description">response 403 is returned</span></span>
+		<span id="gherkin-step"><span class="label">Then</span> <span class="description">response 400 is returned</span></span>
 		<span id="gherkin-step"><span class="label">And</span> <span class="description">account balance is $15</span></span>
 </div>
 			</ol>

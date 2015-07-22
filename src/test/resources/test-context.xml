@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+                           http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean id="persistence" class="com.bananabank.ibbb.core.persistence.Persistence"></bean>
+	<bean id="session" class="com.bananabank.ibbb.core.persistence.Session"></bean>
+	
+	<bean id="balanceDao" class="com.bananabank.ibbb.request.balance.core.BalanceDao"></bean>
+	<bean id="balanceService" class="com.bananabank.ibbb.request.balance.core.BalanceService"></bean>
+	<bean class="com.bananabank.ibbb.request.balance.BalanceController" >
+		<constructor-arg name="balanceService" ref="balanceService"></constructor-arg>
+	</bean>
+
+	<bean id="tokenDao" class="com.bananabank.ibbb.request.tokens.core.TokenDao"></bean>
+	<bean id="tokenService" class="com.bananabank.ibbb.request.tokens.core.TokenService"></bean>
+	<bean class="com.bananabank.ibbb.request.tokens.TokenController" >
+		<constructor-arg name="tokenService" ref="tokenService"></constructor-arg>
+	</bean>
+	
+	<bean id="historyDao" class="com.bananabank.ibbb.request.history.core.HistoryDao"></bean>
+	<bean id="historyService" class="com.bananabank.ibbb.request.history.core.HistoryService"></bean>
+	<bean id="historyController" class="com.bananabank.ibbb.request.history.HistoryController"></bean>
+	
+	<bean id="authorizationInterceptor" class="com.bananabank.ibbb.core.authorization.AuthorizationInterceptor"></bean>
+	<bean id="authorizationAdvisor" class="com.bananabank.ibbb.core.authorization.AuthorizationAdvisor"></bean>
+	<bean id="authorizationService" class="com.bananabank.ibbb.core.authorization.AuthorizationService"></bean>
+	
+	<bean id="historyInterceptor" class="com.bananabank.ibbb.request.history.core.HistoryInterceptor"></bean>
+	<bean id="historyAdvisor" class="com.bananabank.ibbb.request.history.core.HistoryAdvisor"></bean>
+	
+	<bean
+		class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator">
+		<property name="proxyTargetClass" value="true" />
+	</bean>
+	
+</beans>
