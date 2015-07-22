@@ -5,4 +5,4 @@ See more in [documentation](https://htmlpreview.github.com?https://github.com/pe
 
 ## How to work with it ?
  - run `mvn clean package` to build executable jar file
- - run `mvn spring-boot:run` to run build and run application
+ - run `mvn spring-boot:run` to build and run application

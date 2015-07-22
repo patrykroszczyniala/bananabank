@@ -44,7 +44,7 @@ public class Persistence {
     /**
      * Gets the object from persisence.
      *
-     * @param type the type of object to return
+     * @param type the type of entity to return
      * @param id the id of the object
      * @return the object
      */
