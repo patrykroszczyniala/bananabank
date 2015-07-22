@@ -1,11 +1,11 @@
 package com.bananabank.ibbb.request.tokens.core;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.bananabank.ibbb.core.persistence.Session;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.tokens.entity.Token;
-import com.google.common.base.Optional;
 
 //@Service
 // TODO should be request scoped !

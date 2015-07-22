@@ -4,12 +4,12 @@
  */
 package com.bananabank.ibbb.core.authorization;
 
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.tokens.core.TokenDao;
 import com.bananabank.ibbb.request.tokens.entity.Token;
-import com.google.common.base.Optional;
 
 /**
  * Authorization service.

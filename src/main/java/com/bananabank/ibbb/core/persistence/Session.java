@@ -9,10 +9,10 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import com.bananabank.ibbb.core.entity.Entity;
-import com.google.common.base.Optional;
 
 /**
  * The Session class that provides methods to work with persistence.
@@ -70,7 +70,11 @@ public class Session<K, T extends Entity<K>> {
      */
     @SuppressWarnings("unchecked")
     public Optional<T> get(Class<T> type, K id) {
-        return (Optional<T>) persiscence.get(type, id);
+        Optional<Object> res = persiscence.get(type, id);
+        if (res.isPresent()) {
+            return Optional.of((T) res.get());
+        }
+        return Optional.empty();
     }
 
     /**

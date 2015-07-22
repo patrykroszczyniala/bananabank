@@ -8,9 +8,9 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Optional;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
-import com.google.common.base.Optional;
 
 /**
  * Primitive version of a persistence used to store application data.
@@ -55,7 +55,7 @@ public class Persistence {
                 return Optional.of(entry.getValue());
             }
         }
-        return Optional.absent();
+        return Optional.empty();
     }
 
     /**
