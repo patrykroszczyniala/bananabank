@@ -9,7 +9,6 @@ import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.history.entity.AccountHistory;
 import com.bananabank.ibbb.request.history.entity.Transactions;
 
-// TODO make it generic
 // TODO create dao for audited data
 @Component
 public class HistoryDao {
