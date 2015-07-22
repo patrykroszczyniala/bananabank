@@ -40,7 +40,7 @@ public class HistoryController {
      */
     @RequestMapping(value = RequestUrl.CHECK_HISTORY_URL, method = RequestMethod.GET)
     public Transactions history(@PathVariable final String userId) {
-        return transactionService.transactionsHistory(userId);
+        return transactionService.getHistory(userId);
     }
 
 }
