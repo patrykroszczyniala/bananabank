@@ -53,7 +53,7 @@ public class AccountHistory implements Entity<Owner> {
 
     @Override
     public int hashCode() {
-        return Objects.hash(owner);
+        return Objects.hash(owner, transactions);
     }
 
     @Override
@@ -69,7 +69,8 @@ public class AccountHistory implements Entity<Owner> {
         }
         AccountHistory other = (AccountHistory) obj;
 
-        return Objects.equals(other.getId(), owner);
+        return Objects.equals(other.getId(), owner) &&
+                Objects.equals(other.getTransactions(), transactions);
     }
 
     @Override

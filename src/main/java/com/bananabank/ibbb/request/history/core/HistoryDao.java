@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2015, Patryk Roszczyniała for Banana Best Bank Inc.
+ * All rights reserved.
+ */
 package com.bananabank.ibbb.request.history.core;
 
 import java.util.Collection;
@@ -9,9 +13,15 @@ import com.bananabank.ibbb.core.persistence.Session;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.history.entity.AccountHistory;
 
+/**
+ * Dao for history handling.
+ *
+ * @author Patryk Roszczyniala (p.roszczyniala@gmail.com)
+ */
 @Component
 public class HistoryDao implements Dao<Owner, AccountHistory> {
 
+    /** The session. */
     private Session<Owner, AccountHistory> session;
 
     @Autowired

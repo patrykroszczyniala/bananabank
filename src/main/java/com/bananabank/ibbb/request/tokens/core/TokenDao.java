@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2015, Patryk Roszczyniała for Banana Best Bank Inc.
+ * All rights reserved.
+ */
 package com.bananabank.ibbb.request.tokens.core;
 
 import java.util.Collection;
@@ -9,11 +13,22 @@ import com.bananabank.ibbb.core.persistence.Session;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 import com.bananabank.ibbb.request.tokens.entity.Token;
 
+/**
+ * Dao for token handling.
+ *
+ * @author Patryk Roszczyniala (p.roszczyniala@gmail.com)
+ */
 @Component
 public class TokenDao implements Dao<Owner, Token> {
 
+    /** The session. */
     private Session<Owner, Token> session;
 
+    /**
+     * Instantiates a new token dao.
+     *
+     * @param session the session
+     */
     @Autowired
     public TokenDao(final Session<Owner, Token> session) {
         this.session = session;

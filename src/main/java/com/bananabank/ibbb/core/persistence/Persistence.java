@@ -6,6 +6,7 @@ package com.bananabank.ibbb.core.persistence;
 
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Optional;
@@ -26,7 +27,7 @@ public class Persistence {
      * Class<?> - type of object stored in map <br/>
      * Map<Object, Object> - map with id and saved contents (Map<Id, Content>)
      */
-    private Map<Class<?>, Map<Object, Object>> objects = new HashMap<>();
+    private Map<Class<?>, LinkedHashMap<Object, Object>> objects = new HashMap<>();
 
     /**
      * Returns the list of saved objects.
@@ -36,7 +37,7 @@ public class Persistence {
      */
     public Map<Object, Object> getAll(Class<?> type) {
         if (objects.get(type) == null) {
-            objects.put(type, new HashMap<>());
+            objects.put(type, new LinkedHashMap<>());
         }
         return objects.get(type);
     }

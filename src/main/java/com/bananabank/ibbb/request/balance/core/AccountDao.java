@@ -1,3 +1,7 @@
+/**
+ * Copyright (c) 2015, Patryk Roszczyniała for Banana Best Bank Inc.
+ * All rights reserved.
+ */
 package com.bananabank.ibbb.request.balance.core;
 
 import java.util.Collection;
@@ -10,12 +14,25 @@ import com.bananabank.ibbb.core.persistence.Session;
 import com.bananabank.ibbb.request.balance.entity.Account;
 import com.bananabank.ibbb.request.balance.entity.Owner;
 
+/**
+ * Dao for account/balance handling.
+ *
+ * @author Patryk Roszczyniala (p.roszczyniala@gmail.com)
+ */
 @Component
 @Scope("request")
 public class AccountDao implements Dao<Owner, Account> {
 
+    /**
+     * The session.
+     */
     private Session<Owner, Account> session;
 
+    /**
+     * Instantiates a new account dao.
+     *
+     * @param session the session
+     */
     @Autowired
     public AccountDao(final Session<Owner, Account> session) {
         this.session = session;
